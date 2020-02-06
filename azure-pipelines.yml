@@ -1,4 +1,12 @@
 steps:
+- task: UpdateServiceNowChangeRequest@2
+  inputs:
+    ServiceNowConnection: 'apolloservicenow'
+    ChangeRequestNumber: '$(PREDEPLOYGATE.CHANGE_REQUEST_NUMBER)'
+    NewStatus: '3'
+    CloseCode: 'successful'
+    CloseNotes: 'test'
+    WorkNotes: 'test'
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
